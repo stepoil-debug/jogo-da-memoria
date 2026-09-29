@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#061523" />
+  <meta name="description" content="STEP Integrated Solutions — experiência interativa e jogo da memória dos processos industriais." />
+  <title>STEP Experience | Jogo da Memória</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="topbar">
+    <img src="assets/step-logo.png" class="brand-logo" alt="STEP Integrated Solutions" />
+    <div class="progress-shell" aria-label="Progresso da experiência">
+      <span class="progress-dot active"></span><span class="progress-dot"></span><span class="progress-dot"></span>
+    </div>
+    <div class="topbar-label">STEP EXPERIENCE <span>•</span> INTEGRATED SOLUTIONS</div>
+  </header>
+
+  <main id="experience">
+    <section class="scene scene-hero active" data-scene="0">
+      <div class="hero-bg"></div>
+      <div class="orb orb-a"></div><div class="orb orb-b"></div>
+      <div class="hero-grid"></div>
+      <div class="scene-content hero-content">
+        <div class="eyebrow"><span></span> ONE STEP AHEAD</div>
+        <h1>Mais que fabricar.<br><em>Transformamos desafios</em><br>em soluções.</h1>
+        <p>Engenharia, fabricação e entrega conectadas em uma única jornada. Precisão industrial com visão de futuro.</p>
+        <div class="hero-actions">
+          <button class="btn-primary next-scene">Descobrir a STEP <span>→</span></button>
+          <div class="micro-stat"><strong>EPCI</strong><small>Integrated execution</small></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-ring ring-1"></div><div class="visual-ring ring-2"></div>
+        <img src="assets/hero-offshore.png" alt="Operação industrial offshore STEP" />
+        <div class="floating-tag tag-1"><b>ENGINEERING</b><span>Precisão desde o primeiro traço</span></div>
+        <div class="floating-tag tag-2"><b>FABRICATION</b><span>Excelência em cada etapa</span></div>
+        <div class="floating-tag tag-3"><b>DELIVERY</b><span>Compromisso até o destino</span></div>
+      </div>
+      <div class="scroll-cue"><span></span> Conheça nossa jornada</div>
+    </section>
+
+    <section class="scene scene-difference" data-scene="1">
+      <div class="difference-bg"></div>
+      <div class="scene-content difference-content">
+        <div class="eyebrow light"><span></span> O DIFERENCIAL STEP</div>
+        <h2>Integração que transforma<br><em>complexidade em resultado.</em></h2>
+        <p class="lead">Cada projeto é acompanhado de ponta a ponta, combinando engenharia, tecnologia, fabricação, controle e execução.</p>
+        <div class="pillars">
+          <article class="pillar">
+            <div class="pillar-num">01</div><div class="pillar-icon">⌁</div>
+            <h3>Engenharia integrada</h3>
+            <p>Do desenho técnico ao planejamento de fabricação, cada decisão nasce conectada à execução.</p>
+          </article>
+          <article class="pillar">
+            <div class="pillar-num">02</div><div class="pillar-icon">◇</div>
+            <h3>Controle em tempo real</h3>
+            <p>Rastreabilidade de processos, dados de produção e visibilidade para uma gestão mais inteligente.</p>
+          </article>
+          <article class="pillar">
+            <div class="pillar-num">03</div><div class="pillar-icon">↗</div>
+            <h3>Entrega com excelência</h3>
+            <p>Qualidade, segurança e compromisso transformando fabricação industrial em valor para o cliente.</p>
+          </article>
+        </div>
+        <div class="difference-cta">
+          <div><small>AGORA É A SUA VEZ</small><strong>Você conhece nossos processos?</strong></div>
+          <button class="btn-light next-scene">Iniciar desafio <span>→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene-game" data-scene="2">
+      <div class="game-bg"></div>
+      <div class="game-wrap">
+        <div class="game-header">
+          <div>
+            <div class="eyebrow"><span></span> DESAFIO STEP</div>
+            <h2>Conecte nossos <em>processos.</em></h2>
+            <p>Encontre os pares e descubra a jornada que transforma engenharia em entrega.</p>
+          </div>
+          <div class="game-stats">
+            <div class="stat"><small>TEMPO</small><strong id="timer">00:00</strong></div>
+            <div class="stat"><small>JOGADAS</small><strong id="moves">0</strong></div>
+            <div class="stat"><small>PARES</small><strong><span id="pairs">0</span>/8</strong></div>
+            <button id="restart" class="icon-btn" title="Reiniciar">↻</button>
+          </div>
+        </div>
+        <div id="board" class="memory-board" aria-label="Tabuleiro do jogo da memória"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="processModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Fechar">×</button>
+      <div class="modal-image-wrap">
+        <img id="modalImage" src="" alt="" />
+        <img src="assets/step-logo.png" class="modal-logo" alt="" />
+      </div>
+      <div class="modal-copy">
+        <span id="modalStep">PROCESSO STEP</span>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+        <button class="modal-continue">Continuar jogando <span>→</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="victory" class="victory" aria-hidden="true">
+    <canvas id="confetti"></canvas>
+    <div class="victory-card">
+      <img src="assets/step-logo.png" alt="STEP" />
+      <span class="victory-kicker">DESAFIO CONCLUÍDO</span>
+      <h2>Você completou<br><em>a jornada STEP.</em></h2>
+      <p>Assim como no jogo, nossos resultados acontecem quando cada etapa se conecta perfeitamente à próxima.</p>
+      <div class="victory-score">
+        <div><small>TEMPO</small><strong id="finalTime">00:00</strong></div>
+        <div><small>JOGADAS</small><strong id="finalMoves">0</strong></div>
+      </div>
+      <button id="playAgain" class="btn-primary">Jogar novamente <span>↻</span></button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
