@@ -1,8 +1,16 @@
 const scenes=[...document.querySelectorAll('.scene')],dots=[...document.querySelectorAll('.progress-dot')];let scene=0;
-function goToScene(n){scene=Math.max(0,Math.min(2,n));scenes.forEach((s,i)=>s.classList.toggle('active',i===scene));dots.forEach((d,i)=>d.classList.toggle('active',i===scene));if(scene===2&&!game.started)startGame();}
-document.querySelectorAll('.next-scene').forEach(b=>b.addEventListener('click',()=>goToScene(scene+1)));
+const navItems=[...document.querySelectorAll('.step-nav-item')];
+function goToScene(n){
+  scene=Math.max(0,Math.min(2,n));
+  document.body.dataset.scene=String(scene);
+  scenes.forEach((s,i)=>s.classList.toggle('active',i===scene));
+  dots.forEach((d,i)=>d.classList.toggle('active',i===scene));
+  navItems.forEach((item,i)=>item.classList.toggle('active',i===scene));
+  if(scene===2&&!game.started)startGame();
+}
+document.querySelectorAll('.next-scene').forEach(b=>b.addEventListener('click',()=>goToScene(scene+1)));document.body.dataset.scene=String(scene);goToScene(0);
 window.addEventListener('keydown',e=>{if(e.key==='ArrowRight'&&scene<2)goToScene(scene+1);if(e.key==='ArrowLeft'&&scene>0)goToScene(scene-1)});
-let wheelLock=false;window.addEventListener('wheel',e=>{if(wheelLock)return;if(Math.abs(e.deltaY)<35)return;wheelLock=true;if(e.deltaY>0&&scene<2)goToScene(scene+1);else if(e.deltaY<0&&scene>0)goToScene(scene-1);setTimeout(()=>wheelLock=false,900)},{passive:true});
+let wheelLock=false;window.addEventListener('wheel',e=>{if(innerWidth<=900||scene===2)return;if(wheelLock)return;if(Math.abs(e.deltaY)<35)return;wheelLock=true;if(e.deltaY>0&&scene<2)goToScene(scene+1);else if(e.deltaY<0&&scene>0)goToScene(scene-1);setTimeout(()=>wheelLock=false,900)},{passive:true});
 
 const processes=[
 {id:'engineering',title:'Engenharia & Desenho',image:'assets/process/game-engineering.webp',description:'Tudo começa na engenharia. Desenhos, especificações e planejamento transformam requisitos complexos em uma rota segura para a fabricação.'},
