@@ -5,14 +5,14 @@ window.addEventListener('keydown',e=>{if(e.key==='ArrowRight'&&scene<2)goToScene
 let wheelLock=false;window.addEventListener('wheel',e=>{if(wheelLock)return;if(Math.abs(e.deltaY)<35)return;wheelLock=true;if(e.deltaY>0&&scene<2)goToScene(scene+1);else if(e.deltaY<0&&scene>0)goToScene(scene-1);setTimeout(()=>wheelLock=false,900)},{passive:true});
 
 const processes=[
-{id:'engineering',title:'Engenharia & Desenho',image:'assets/process/01-engenharia-projeto.png',description:'Tudo começa na engenharia. Desenhos, especificações e planejamento transformam requisitos complexos em uma rota segura para a fabricação.'},
-{id:'materials',title:'Separação de Materiais',image:'assets/process/02-separacao-material.png',description:'Rastreabilidade e organização garantem que cada material correto esteja disponível no momento certo para a produção.'},
-{id:'assembly',title:'Pré-montagem de Spools',image:'assets/process/03-pre-montagem.png',description:'Na pré-montagem, componentes ganham forma. Alinhamento, preparação e precisão dimensional criam a base para a próxima etapa.'},
-{id:'welding',title:'Soldagem',image:'assets/process/04-solda.png',description:'Procedimentos controlados, profissionais qualificados e inspeção rigorosa fazem da soldagem uma etapa essencial da confiabilidade do conjunto.'},
-{id:'heat',title:'Tratamento Térmico',image:'assets/process/05-tratamento-termico.png',description:'Quando aplicável, o tratamento térmico controla propriedades e tensões do material para atender aos requisitos técnicos do projeto.'},
-{id:'paint',title:'Pintura & Proteção',image:'assets/process/06-pintura.png',description:'Preparação de superfície e pintura protegem o equipamento contra ambientes agressivos e aumentam sua durabilidade.'},
-{id:'packing',title:'Paletização',image:'assets/process/07-paletizacao.png',description:'A entrega começa antes do transporte. Identificação, proteção e acondicionamento preservam cada item até seu destino.'},
-{id:'shipping',title:'Expedição & Entrega',image:'assets/process/08-envio-material.png',description:'Documentação, conferência e logística fecham o ciclo, levando o resultado da fabricação até a operação do cliente.'}
+{id:'engineering',title:'Engenharia & Desenho',image:'assets/process/game-engineering.webp',description:'Tudo começa na engenharia. Desenhos, especificações e planejamento transformam requisitos complexos em uma rota segura para a fabricação.'},
+{id:'materials',title:'Separação de Materiais',image:'assets/process/game-materials.webp',description:'Rastreabilidade, identificação e organização garantem que cada material correto esteja disponível no momento certo para a produção.'},
+{id:'assembly',title:'Pré-montagem de Spools',image:'assets/process/game-assembly.webp',description:'Na pré-montagem, componentes ganham forma. Alinhamento, preparação e precisão dimensional criam a base para a próxima etapa.'},
+{id:'welding',title:'Soldagem',image:'assets/process/game-welding.webp',description:'Procedimentos controlados, profissionais qualificados e inspeção rigorosa fazem da soldagem uma etapa essencial da confiabilidade do conjunto.'},
+{id:'inspection',title:'Inspeção & Qualidade',image:'assets/process/game-inspection.webp',description:'Inspeção visual, dimensional e rastreabilidade confirmam conformidade e qualidade antes do avanço do processo.'},
+{id:'heat',title:'Tratamento Térmico',image:'assets/process/game-heat.webp',description:'Quando aplicável, o tratamento térmico controla propriedades e tensões do material para atender aos requisitos técnicos do projeto.'},
+{id:'paint',title:'Pintura & Proteção',image:'assets/process/game-painting.webp',description:'Preparação de superfície e pintura protegem o equipamento contra ambientes agressivos e aumentam sua durabilidade.'},
+{id:'fabrication',title:'Fabricação Industrial',image:'assets/process/game-fabrication.webp',description:'Fabricação, montagem e acabamento conectam engenharia e produção com precisão, segurança e controle do início ao fim.'}
 ];
 const game={started:false,first:null,second:null,lock:false,moves:0,pairs:0,seconds:0,timer:null};
 const board=document.getElementById('board'),movesEl=document.getElementById('moves'),pairsEl=document.getElementById('pairs'),timerEl=document.getElementById('timer');
