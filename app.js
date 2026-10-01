@@ -8,7 +8,7 @@ function goToScene(n){
   navItems.forEach((item,i)=>item.classList.toggle('active',i===scene));
   if(scene===2&&!game.started)startGame();
 }
-document.querySelectorAll('.next-scene').forEach(b=>b.addEventListener('click',()=>goToScene(scene+1)));document.body.dataset.scene=String(scene);goToScene(0);
+document.querySelectorAll('.next-scene').forEach(b=>b.addEventListener('click',()=>goToScene(scene+1)));['heroStartGame','heroStartDesktop'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('click',()=>goToScene(2))});document.body.dataset.scene=String(scene);goToScene(0);
 window.addEventListener('keydown',e=>{if(e.key==='ArrowRight'&&scene<2)goToScene(scene+1);if(e.key==='ArrowLeft'&&scene>0)goToScene(scene-1)});
 let wheelLock=false;window.addEventListener('wheel',e=>{if(innerWidth<=900||scene===2)return;if(wheelLock)return;if(Math.abs(e.deltaY)<35)return;wheelLock=true;if(e.deltaY>0&&scene<2)goToScene(scene+1);else if(e.deltaY<0&&scene>0)goToScene(scene-1);setTimeout(()=>wheelLock=false,900)},{passive:true});
 
