@@ -15,7 +15,11 @@
 
   body.hero-reference-ready .scene-hero .hero-bg{
     inset:0;
-    background:#061725 url("assets/hero-reference.webp?v=8") center center / 100% 100% no-repeat !important;
+    background-color:#061725 !important;
+    background-image:var(--hero-reference-image) !important;
+    background-position:center center !important;
+    background-size:100% 100% !important;
+    background-repeat:no-repeat !important;
   }
 
   body.hero-reference-ready .scene-hero .hero-grid,
