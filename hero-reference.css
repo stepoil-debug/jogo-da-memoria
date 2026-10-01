@@ -8,24 +8,24 @@
 
 /* Desktop/tablet largo: reproduz exatamente a arte aprovada */
 @media (min-width:701px){
-  body[data-scene="0"] .topbar{
+  body.hero-reference-ready[data-scene="0"] .topbar{
     opacity:0;
     pointer-events:none;
   }
 
-  .scene-hero .hero-bg{
+  body.hero-reference-ready .scene-hero .hero-bg{
     inset:0;
-    background:#061725 url("assets/hero-reference.webp") center center / 100% 100% no-repeat !important;
+    background:#061725 url("assets/hero-reference.webp?v=8") center center / 100% 100% no-repeat !important;
   }
 
-  .scene-hero .hero-grid,
-  .scene-hero .hero-content,
-  .scene-hero .hero-visual,
-  .scene-hero .hero-values{
+  body.hero-reference-ready .scene-hero .hero-grid,
+  body.hero-reference-ready .scene-hero .hero-content,
+  body.hero-reference-ready .scene-hero .hero-visual,
+  body.hero-reference-ready .scene-hero .hero-values{
     display:none !important;
   }
 
-  .scene-hero .hero-hotspot{
+  body.hero-reference-ready .scene-hero .hero-hotspot{
     display:block;
     position:absolute;
     z-index:25;
