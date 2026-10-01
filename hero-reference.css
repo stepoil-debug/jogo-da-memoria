@@ -1,0 +1,234 @@
+/* STEP HERO REFERENCE V7
+   Replica a composição visual aprovada da página inicial.
+   Desktop usa a arte de referência completa; mobile reorganiza o conteúdo. */
+
+.hero-benefits-mobile,
+.hero-start-mobile,
+.hero-hotspot{display:none}
+
+/* Desktop/tablet largo: reproduz exatamente a arte aprovada */
+@media (min-width:701px){
+  body[data-scene="0"] .topbar{
+    opacity:0;
+    pointer-events:none;
+  }
+
+  .scene-hero .hero-bg{
+    inset:0;
+    background:#061725 url("assets/hero-reference.webp") center center / 100% 100% no-repeat !important;
+  }
+
+  .scene-hero .hero-grid,
+  .scene-hero .hero-content,
+  .scene-hero .hero-visual,
+  .scene-hero .hero-values{
+    display:none !important;
+  }
+
+  .scene-hero .hero-hotspot{
+    display:block;
+    position:absolute;
+    z-index:25;
+    appearance:none;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+  }
+
+  /* botão PRÓXIMO da própria arte */
+  .scene-hero .hero-hotspot-next{
+    right:4.5%;
+    top:2.2%;
+    width:12.5%;
+    height:6.2%;
+    border-radius:999px;
+  }
+
+  /* CTA INICIAR JOGO da própria arte */
+  .scene-hero .hero-hotspot-start{
+    left:6.2%;
+    top:73.5%;
+    width:27.8%;
+    height:8.5%;
+    border-radius:999px;
+  }
+
+  .scene-hero .hero-hotspot:focus-visible{
+    outline:2px solid #22d4ef;
+    outline-offset:4px;
+  }
+}
+
+/* Mobile: mantém a identidade da referência sem achatar a arte 3:2 */
+@media (max-width:700px){
+  body[data-scene="0"] .topbar{
+    display:flex !important;
+    opacity:1;
+    pointer-events:auto;
+  }
+
+  .scene-hero{
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    -webkit-overflow-scrolling:touch;
+    background:#061725;
+  }
+
+  .scene-hero .hero-bg{
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(circle at 75% 35%,rgba(0,180,218,.18),transparent 32%),
+      linear-gradient(155deg,#06131f 0%,#071d2c 55%,#082a3d 100%) !important;
+  }
+
+  .scene-hero .hero-grid{opacity:.07 !important}
+
+  .scene-hero .hero-content-v2{
+    position:relative;
+    z-index:8;
+    width:100% !important;
+    padding:98px 18px 0 !important;
+  }
+
+  .scene-hero .hero-content-v2 .eyebrow{
+    font-size:9px;
+    letter-spacing:.18em;
+  }
+
+  .scene-hero .hero-content-v2 h1{
+    margin:18px 0 14px !important;
+    max-width:92%;
+    font-size:clamp(39px,11vw,52px) !important;
+    line-height:.94 !important;
+    letter-spacing:-.05em;
+    text-transform:uppercase;
+  }
+
+  .scene-hero .hero-content-v2 h1 em{
+    color:#19c6e8;
+    font-style:normal;
+  }
+
+  .scene-hero .hero-content-v2 p{
+    max-width:96%;
+    margin:0;
+    color:#afc3cf;
+    font-size:12px !important;
+    line-height:1.65;
+  }
+
+  .mobile-reference-visual{
+    position:relative !important;
+    z-index:5;
+    right:auto !important;
+    top:auto !important;
+    width:calc(100% - 28px) !important;
+    height:300px !important;
+    margin:22px 14px 0;
+    opacity:1 !important;
+    overflow:hidden;
+    border:1px solid rgba(74,210,233,.25);
+    border-radius:18px;
+    box-shadow:0 22px 55px rgba(0,0,0,.36);
+  }
+
+  .mobile-reference-visual img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:67% center;
+    display:block;
+  }
+
+  .mobile-reference-visual:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,transparent 45%,rgba(4,18,29,.28) 100%);
+    pointer-events:none;
+  }
+
+  .hero-benefits-mobile{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:8px;
+    margin-top:20px;
+  }
+
+  .hero-benefits-mobile article{
+    min-width:0;
+    padding:12px 9px;
+    border:1px solid rgba(105,213,231,.18);
+    border-radius:10px;
+    background:rgba(8,35,53,.58);
+    backdrop-filter:blur(10px);
+  }
+
+  .hero-benefits-mobile b{
+    display:block;
+    margin-bottom:8px;
+    color:#27d0ea;
+    font-size:20px;
+    line-height:1;
+  }
+
+  .hero-benefits-mobile span{
+    display:block;
+    color:#d8e7ed;
+    font-size:8px;
+    line-height:1.35;
+  }
+
+  .hero-start-mobile{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    margin:12px 0 155px;
+    padding:15px 20px;
+    border:0;
+    border-radius:999px;
+    background:linear-gradient(100deg,#39d9ef,#11b9d9);
+    color:#062239;
+    font:800 13px Manrope,sans-serif;
+    letter-spacing:.04em;
+    box-shadow:0 15px 38px rgba(0,188,220,.18);
+  }
+
+  .hero-start-mobile span{font-size:19px}
+
+  /* A faixa institucional fica no fim da primeira tela, como na arte */
+  .scene-hero .hero-values{
+    position:absolute !important;
+    left:14px !important;
+    right:14px !important;
+    bottom:14px !important;
+    z-index:10;
+    grid-template-columns:1fr 1fr !important;
+    gap:10px 8px !important;
+    padding:12px !important;
+    border:1px solid rgba(89,207,228,.18) !important;
+    border-radius:14px;
+    background:rgba(4,24,38,.82);
+    backdrop-filter:blur(12px);
+  }
+
+  .scene-hero .hero-values article{
+    border:0 !important;
+    padding:0 !important;
+    gap:7px !important;
+  }
+
+  .scene-hero .hero-values strong{font-size:19px !important}
+  .scene-hero .hero-values b{font-size:6px !important}
+  .scene-hero .hero-values span{font-size:6px !important}
+
+  .scene-hero .hero-hotspot{display:none !important}
+}
+
+@media (max-width:390px){
+  .mobile-reference-visual{height:265px !important}
+  .hero-benefits-mobile article{padding:10px 7px}
+  .hero-benefits-mobile span{font-size:7px}
+}
