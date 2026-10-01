@@ -1,7 +1,26 @@
-const heroReferencePreload=new Image();
-heroReferencePreload.onload=()=>document.body.classList.add('hero-reference-ready');
-heroReferencePreload.onerror=()=>document.body.classList.remove('hero-reference-ready');
-heroReferencePreload.src='assets/hero-reference.webp?v=8';
+async function loadHeroReference(){
+  document.body.classList.remove('hero-reference-ready');
+  try{
+    const files=Array.from({length:8},(_,i)=>`assets/hero-ref/${String(i).padStart(2,'0')}.txt?v=9`);
+    const parts=await Promise.all(files.map(async url=>{
+      const response=await fetch(url,{cache:'force-cache'});
+      if(!response.ok) throw new Error(`Falha ao carregar ${url}: ${response.status}`);
+      return (await response.text()).trim();
+    }));
+    const dataUrl='data:image/webp;base64,'+parts.join('');
+    document.documentElement.style.setProperty('--hero-reference-image',`url("${dataUrl}")`);
+    const mobileImage=document.querySelector('.mobile-reference-visual img');
+    if(mobileImage) mobileImage.src=dataUrl;
+    const preload=new Image();
+    preload.onload=()=>document.body.classList.add('hero-reference-ready');
+    preload.onerror=()=>document.body.classList.remove('hero-reference-ready');
+    preload.src=dataUrl;
+  }catch(error){
+    console.error('Não foi possível carregar a arte principal STEP.',error);
+    document.body.classList.remove('hero-reference-ready');
+  }
+}
+loadHeroReference();
 
 const scenes=[...document.querySelectorAll('.scene')],dots=[...document.querySelectorAll('.progress-dot')];let scene=0;
 const navItems=[...document.querySelectorAll('.step-nav-item')];
