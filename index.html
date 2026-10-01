@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=hero-reference-v6" />
+  <link rel="stylesheet" href="style.css?v=hero-reference-v7" />
+  <link rel="stylesheet" href="hero-reference.css?v=7" />
 </head>
 <body>
   <div class="noise"></div>
@@ -31,33 +32,20 @@
       <div class="hero-grid"></div>
 
       <div class="scene-content hero-content hero-content-v2">
-        <div class="eyebrow"><span></span> STEP INTEGRATED SOLUTIONS</div>
-        <h1>Soluções<br>que vão mais<br><em>longe.</em></h1>
-        <p>Da engenharia à entrega, unimos pessoas, tecnologia e experiência para transformar desafios em resultados no Brasil e no mundo.</p>
+        <div class="eyebrow"><span></span> JOGO DA MEMÓRIA STEP</div>
+        <h1>Aprenda<br><em>brincando</em><br>com o Stepinho</h1>
+        <p>Conecte os processos, conheça as etapas e descubra como cada área contribui para grandes entregas dentro e fora do Brasil.</p>
+
+        <div class="hero-benefits-mobile">
+          <article><b>⌘</b><span>Desenvolve<br>o conhecimento</span></article>
+          <article><b>◎</b><span>Treina a<br>memória</span></article>
+          <article><b>▥</b><span>Conheça nossos<br>processos</span></article>
+        </div>
+        <button class="hero-start-mobile" id="heroStartGame">INICIAR JOGO <span>→</span></button>
       </div>
 
-      <div class="hero-visual hero-visual-v2">
-        <div class="visual-ring ring-1"></div><div class="visual-ring ring-2"></div>
-        <div class="hero-symbol-shell" aria-hidden="true">
-          <div class="hero-symbol hero-symbol-a"></div>
-          <div class="hero-symbol hero-symbol-b"></div>
-          <div class="hero-symbol-core">
-            <img src="assets/step-logo.png" alt="">
-          </div>
-        </div>
-
-        <div class="floating-tag media-tag text-only tag-1">
-          <div class="tag-icon">⌁</div>
-          <div class="tag-copy"><b>ENGINEERING</b><span>Precisão desde o primeiro traço</span></div>
-        </div>
-        <div class="floating-tag media-tag text-only tag-2">
-          <div class="tag-icon">✦</div>
-          <div class="tag-copy"><b>FABRICATION</b><span>Excelência em cada etapa</span></div>
-        </div>
-        <div class="floating-tag media-tag text-only tag-3">
-          <div class="tag-icon">↗</div>
-          <div class="tag-copy"><b>DELIVERY</b><span>Compromisso até o destino</span></div>
-        </div>
+      <div class="hero-visual hero-visual-v2 mobile-reference-visual">
+        <img src="assets/hero-reference.webp" alt="Stepinho e processos STEP" />
       </div>
 
       <div class="hero-values">
@@ -66,6 +54,9 @@
         <article><strong>◇</strong><div><b>QUALIDADE E SEGURANÇA</b><span>Em todos os processos</span></div></article>
         <article><strong>▥</strong><div><b>RESULTADOS SUSTENTÁVEIS</b><span>Hoje e no futuro</span></div></article>
       </div>
+
+      <button class="hero-hotspot hero-hotspot-next next-scene" aria-label="Próximo"></button>
+      <button class="hero-hotspot hero-hotspot-start" id="heroStartDesktop" aria-label="Iniciar jogo"></button>
     </section>
 
     <section class="scene scene-difference" data-scene="1">
@@ -151,6 +142,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=hero-reference-v6"></script>
+  <script src="app.js?v=hero-reference-v7"></script>
 </body>
 </html>
