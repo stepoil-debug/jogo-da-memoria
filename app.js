@@ -1,3 +1,8 @@
+const heroReferencePreload=new Image();
+heroReferencePreload.onload=()=>document.body.classList.add('hero-reference-ready');
+heroReferencePreload.onerror=()=>document.body.classList.remove('hero-reference-ready');
+heroReferencePreload.src='assets/hero-reference.webp?v=8';
+
 const scenes=[...document.querySelectorAll('.scene')],dots=[...document.querySelectorAll('.progress-dot')];let scene=0;
 const navItems=[...document.querySelectorAll('.step-nav-item')];
 function goToScene(n){
